@@ -13,7 +13,8 @@
 #define LIST_END -1
 
 //node definition for linked list
-typedef struct node{
+typedef struct node
+{
     int index;      //index of the node
     void* obj;      //object data
     void* next;         //pointer to the next

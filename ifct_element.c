@@ -11,7 +11,8 @@
 
 #include "ifct_element.h"
 
-typedef enum place {
+typedef enum place 
+{
     Seoul,          //0
     Jeju,           //1
     Tokyo,          //2
@@ -97,3 +98,11 @@ char countryName[N_PLACE+1][MAX_PLACENAME] =
     "CapeTown",
     "Unrecognized"
 };
+
+char *ifctele_getPlaceName(int placeIndex)
+{
+	
+	return countryName[placeIndex];
+ } 
+
+
