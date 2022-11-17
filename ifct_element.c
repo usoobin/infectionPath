@@ -99,10 +99,35 @@ char countryName[N_PLACE+1][MAX_PLACENAME] =
     "Unrecognized"
 };
 
-char *ifctele_getPlaceName(int placeIndex)
-{
+ int *ifctele_getElement(int index, int age, unsigned int detected_time, int history_place[N_HISTORY])
+ { // 각 환자의 전체적인 정보 
+	
+ }
+
+ char *ifctele_getPlaceName(int placeIndex)
+ { //placeIndex 번호를 받아 번호에 맞는 지역이름을 반환하는 함수 
 	
 	return countryName[placeIndex];
  } 
+ 
+ 
+ int *ifctele_getHistPlaceIndex(void* obj, int index)
+ { //감염 확인일자로 부터 5일간(감염 확인 당시 포함) 있던 장소의 PlaceIndex번호를 받아 번호에 맞는 지역이름을 반환하는 함수 
+ 	return countryName[placeIndex];	
+ }
 
 
+ int *ifctele_getinfestedTime(void* obj)
+ { //감염 확인 일자를 얻는 함수 
+ 	
+ }
+ 
+ int *ifctele_getAge(void* obj)
+ { //감염자의 나이를  얻는 함수 
+ 	
+ }
+ 
+ int *ifctele_printElement(void* obj)
+ { //얻은 정보를 출력하는 함수 
+ 	
+ }

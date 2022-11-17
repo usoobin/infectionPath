@@ -63,8 +63,8 @@ int main(int argc, const char * argv[])
     do {
         printf("\n=============== INFECTION PATH MANAGEMENT PROGRAM (No. of patients : %i) =============\n", ifctdb_len());
         printf("1. Print details about a patient.\n");                      //MENU_PATIENT
-        printf("2. Print list of patients infected at a place.\n");        //MENU_PLACE
-        printf("3. Print list of patients in a range of age.\n");          //MENU_AGE
+        printf("2. Print list of patients infected at a place.\n");         //MENU_PLACE
+        printf("3. Print list of patients in a range of age.\n");           //MENU_AGE
         printf("4. Track the root of the infection\n");                     //MENU_TRACK
         printf("0. Exit.\n");                                               //MENU_EXIT
         printf("=============== ------------------------------------------------------- =============\n\n");
