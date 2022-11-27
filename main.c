@@ -23,11 +23,13 @@ int trackInfester(int patient_no, int *detected_time, int *place); //°¨¿°ÀÚ ÃßÀû
 
 int main(int argc, const char * argv[]) 
 {    
-    int menu_selection,i;
+    int menu_selection,i,j;
     int patient;
     void *ifct_element;
     FILE* fp;
-    int pIndex, age, time;
+    int pIndex, age, time, place;
+    int min_age, max_age;
+    int patient_track;
     int placeHist[N_HISTORY];
     
     //------------- 1. loading patient info file ------------------------------

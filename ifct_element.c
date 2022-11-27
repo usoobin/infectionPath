@@ -99,35 +99,54 @@ char countryName[N_PLACE+1][MAX_PLACENAME] =
     "Unrecognized"
 };
 
- int *ifctele_getElement(int index, int age, unsigned int detected_time, int history_place[N_HISTORY])
+ void* ifctele_getElement(int index, int age, unsigned int detected_time, int history_place[N_HISTORY])
  { // 각 환자의 전체적인 정보 
+	/*
+		for 문을 사용해서 환자 정보를 받는다
+	*/
 	
+	for(i=0; i<N_PEOPLE;)
  }
 
- char *ifctele_getPlaceName(int placeIndex)
+ char* ifctele_getPlaceName(int placeIndex)
  { //placeIndex 번호를 받아 번호에 맞는 지역이름을 반환하는 함수 
-	
+	/*
+		
+	*/
 	return countryName[placeIndex];
  } 
  
  
- int *ifctele_getHistPlaceIndex(void* obj, int index)
+ void* ifctele_getHistPlaceIndex(void* obj, int index)
  { //감염 확인일자로 부터 5일간(감염 확인 당시 포함) 있던 장소의 PlaceIndex번호를 받아 번호에 맞는 지역이름을 반환하는 함수 
- 	return countryName[placeIndex];	
+ 	/*
+		for문을 통해서 장소를 다 출력	 
+	*/
+	 
+	return countryName[placeIndex];	
  }
 
 
- int *ifctele_getinfestedTime(void* obj)
+ int* ifctele_getinfestedTime(void* obj)
  { //감염 확인 일자를 얻는 함수 
- 	
+ 	/*
+		for문을 통해서 time의 값을 얻음	
+	*/
  }
  
- int *ifctele_getAge(void* obj)
+ int* ifctele_getAge(void* obj)
  { //감염자의 나이를  얻는 함수 
- 	
+ 	/*
+		for 문을 이용해서 최소 나이를 찾는다
+		
+		for 문을 이용해서 최고 나이를 찾는다 
+	*/
  }
  
- int *ifctele_printElement(void* obj)
+ int* ifctele_printElement(void* obj)
  { //얻은 정보를 출력하는 함수 
+ 	/*
+		bingo_print 이용 
+	*/
  	
  }
