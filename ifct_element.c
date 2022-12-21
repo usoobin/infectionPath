@@ -156,7 +156,7 @@ typedef struct ifs_ele
 		//만약 patient가 첫번째 감염자가 아닐경우 for문을 이용해 누구로 부터 감염되었는지 추적 
 		else
 		{
-			for(i =0; i)
+			for(i =0; i<N_HISTORY; i++)
 			{
 				printf("--> [TRACKING] patient %d is infected by %d (time : %d, place : %c)", index, index,place[N_HISTORY],place[N_HISTORY])
 			}	
@@ -213,6 +213,7 @@ typedef struct ifs_ele
             	printf("%c(%d) ->",placeHist[j],placeHist[j]);
             	ifctele_getPlaceName();
 			}
+			printf("----------------------------------------");
 		}
 	}
  }
