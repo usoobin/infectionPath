@@ -183,7 +183,8 @@ typedef struct ifs_ele
  void ifctele_getAge(void* obj)
  { //감염자의 나이를  얻는 함수 
  	
-	for(j = min_age; j<max_age+1; j++) //min_age부터 max_age까지 내에 나이가 맞으면 아래 값을 출력 
+ 	//min_age부터 max_age까지 내에 나이가 맞으면 아래 값을 출력 
+	for(j = min_age; j<max_age+1; j++) 
 	{
     	ifctele_printElement();
 	}
