@@ -99,54 +99,111 @@ char countryName[N_PLACE+1][MAX_PLACENAME] =
     "Unrecognized"
 };
 
+typedef struct ifs_ele
+{	
+	int index;//번호
+	int age;//나이
+	int time;//걸린시간
+	place_t place[N_HISTORY]; //장소(N_HISTORY) 
+} ifs_ele_t;
+
+
+
+
+
  void* ifctele_getElement(int index, int age, unsigned int detected_time, int history_place[N_HISTORY])
- { // 각 환자의 전체적인 정보 
-	/*
-		for 문을 사용해서 환자 정보를 받는다
-	*/
+ { // 각 환자의 전체적인 정보를 구조체 하는 함수 
+ 	ifs_ele_t* ptr;
+ 	ptr = malloc();
+ 	
+ 	ptr -> index = index;
+	ptr -> age = age;
+	ptr -> detected_time = time;
+	ptr -> history_place[N_HISTORY] = history_place[N_HISTORY];	
 	
-	for(i=0; i<N_PEOPLE;)
+	return ptr; //free(ptr)하면 안됨 main.c로 정보를 넘겨줘야하기 때문에
  }
 
  char* ifctele_getPlaceName(int placeIndex)
  { //placeIndex 번호를 받아 번호에 맞는 지역이름을 반환하는 함수 
-	/*
-		
-	*/
+	place_t* ptr;
+	//입력받은 place와 place배열 순서 속 숫자가 같을경우 그 숫자에 해당하는 지역이름을 출력한다. 
+	if(place[N_HISTORY] == place)
+	{
+		printf("%c(%d) ->",placeHist[place-1],placeHist[place-1]); 
+		//배열은 0부터 시작해서 place보다 앞단계 위에 있다고 생각하여 place-1을 해줌
+	}
+	
+	
 	return countryName[placeIndex];
  } 
  
  
- void* ifctele_getHistPlaceIndex(void* obj, int index)
+ int ifctele_getHistPlaceIndex(void* obj, int index)
  { //감염 확인일자로 부터 5일간(감염 확인 당시 포함) 있던 장소의 PlaceIndex번호를 받아 번호에 맞는 지역이름을 반환하는 함수 
  	/*
 		for문을 통해서 장소를 다 출력	 
 	*/
 	 
+	if( index == index) //입력받은 index 값이 동일할 경우 
+	{
+		//만약 patient가 첫번째 감염자 일경우
+		
+		//만약 patient가 첫번째 감염자가 아닐경우 for문을 이용해 누구로 부터 감염되었는지 추적 
+		for()
+		{
+			printf("--> [TRACKING] patient %d is infected by %d (time : %d, place : %c)", index, index,)
+		}
+	}
+	 
 	return countryName[placeIndex];	
  }
 
 
- int* ifctele_getinfestedTime(void* obj)
+ unsigned int ifctele_getinfestedTime(void* obj)
  { //감염 확인 일자를 얻는 함수 
  	/*
 		for문을 통해서 time의 값을 얻음	
 	*/
  }
  
- int* ifctele_getAge(void* obj)
+ void ifctele_getAge(void* obj)
  { //감염자의 나이를  얻는 함수 
- 	/*
-		for 문을 이용해서 최소 나이를 찾는다
-		
-		for 문을 이용해서 최고 나이를 찾는다 
-	*/
+ 	
+	
+	for(j = min_age; j<max_age+1; j++) //min_age부터 max_age까지 내에 나이가 맞으면 아래 값을 출력 
+	{
+    	ifctele_printElement();
+	}
+	
+	ifs_ele_t* ptr = (ifs_ele_t*).obj; //구조체를 만들어주고 
+	
+	return ptr->age; //그 구조체 안에 있는 필요한 내용을 내보낸다. 
  }
  
- int* ifctele_printElement(void* obj)
+ 
+ void ifctele_printElement(void* obj)
  { //얻은 정보를 출력하는 함수 
- 	/*
-		bingo_print 이용 
-	*/
+	
+	ifs_ele_t* ptr = (ifs_ele_t*).obj;
+
+	for(i=0; i<N_PEOPLE; i++) //N_PEOPLE = 5 
+	{
+		if( index == index) //index번호와 입력받은 index의 값이 동일한 경우 아래와 같이 실행 
+		{
+			printf("----------------------------------------");
+			printf("Patient index : %i\n", ptr -> index); 
+			printf("Patient age : %i\n", ptr -> age); 
+			printf("Detected time : %i\n", ptr -> time); 
+			
+            for(j=0; j<N_HISTORY; j++) //N_HISTORY = 40
+            {
+            	printf("%c(%d) ->",placeHist[j],placeHist[j]);
+            	ifctele_getPlaceName();
+			}
+		}
+	}
+	
+	
  	
  }

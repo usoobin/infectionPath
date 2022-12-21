@@ -27,9 +27,7 @@ int main(int argc, const char * argv[])
     int patient;
     void *ifct_element;
     FILE* fp;
-    int pIndex, age, time, place;
-    int min_age, max_age;
-    int patient_track;
+    int index, age, time;
     int placeHist[N_HISTORY];
     
     //------------- 1. loading patient info file ------------------------------
@@ -49,18 +47,27 @@ int main(int argc, const char * argv[])
     
     //1-2. loading each patient informations
    
-    while(fscanf(fp, "%d %d %d", &pIndex ,&age, &time))
+    while(3 == fscanf(fp, "%d %d %d", &index ,&age, &time)) //3 == fscanf("3가지 읽기",변수들) 
     {
-    	for(i=0; i<5; i++)
+    	for(i=0; i<N_HISTORY; i++) //N_HISTORY =5
     	{
-    		fscanf(fp, "%d", &placeHist[i]);
+    		fscanf(fp, "%d", &placeHist[i]); //fscanf로 5개 읽기
 		}
+		
+		ifct_element = ifctele_genElement(index, age, time); //element 작성
+		
+		ifctdb_addTail(ifct_element); 
+ 
+		
+		//값을 가져올때 이렇게 age = ifctele_getAge(ifct_element); 하지만 여기서 사용하면 안됨
+		 
 	}
     
     
     
     //1-3. FILE pointer close
     fclose(fp);
+    
     
     do {
         printf("\n=============== INFECTION PATH MANAGEMENT PROGRAM (No. of patients : %i) =============\n", ifctdb_len());
@@ -77,57 +84,50 @@ int main(int argc, const char * argv[])
         
         switch(menu_selection)
         {
-            case MENU_EXIT:
+            case MENU_EXIT: //menu 0
                 printf("Exiting the program... Bye bye.\n");
                 break;
             
 			//특정 환자에 대한 정보 출력     
-            case MENU_PATIENT: 
+            case MENU_PATIENT:  //menu 1
+            //scanf로 patient index를 받음 
             	printf("Patient index : ");
-            	scanf("%d", &patient);
-            	
-            	if(patient = pIndex) 
-            	{
-            		printf("Patient index :%d\n",pIndex);
-            		printf("Patient age :%d\n",age);
-            		printf("detected time :%d\n",time);
-            		printf("Path History : %c(%d) -> %c(%d) -> %c(%d) -> %c(%d) -> %c(%d)" ,placeHist[i],placeHist[i],placeHist[i+1],placeHist[i+1]
-					,placeHist[i+2],placeHist[i+2],placeHist[i+3],placeHist[i+3],placeHist[i+4],placeHist[i+4]);
-				}
+            	scanf("%d",&index);
+            	ifctele_getElement();
+            	ifctele_printElement(index);
+            
                 break;
+                
+                
              //특정 장소에서 감염이 확인된 환자 관련 정보 출력     
-            case MENU_PLACE:
+            case MENU_PLACE:  //menu 2
             	printf("Place Name : ");
             	scanf("%d", &place);
+            	ifctele_getPlaceName();
             	
-            	if(place = placeHist[i])
-            	{
-            		printf("There are %d patients detected in %d", pIndex,placeHist[i]);
-				}
                 break;
+                
+                
              //특정 범위의 나이에 해당하는 환자 관련 정보 출력   
-            case MENU_AGE:
+            case MENU_AGE:  //menu 3
                 printf("minimal age : "); //최소나이 변수를 min_age 
                 scanf("%d", &min_age);
                 
                 printf("maximal age : "); //최고나이 변수를 max_age 
                 scanf("%d", &max_age);
                 
-                for(j = min_age; j<max_age+1; j++) //min_age부터 max_age까지 내에 나이가 맞으면 아래 값을 출력 
-                {
-                	printf("Patient index :%d\n",pIndex);
-            		printf("Patient age :%d\n",age);
-            		printf("detected time :%d\n",time);
-            		printf("Path History : %c(%d) -> %c(%d) -> %c(%d) -> %c(%d) -> %c(%d)" ,placeHist[i],placeHist[i],placeHist[i+1],placeHist[i+1]
-					,placeHist[i+2],placeHist[i+2],placeHist[i+3],placeHist[i+3],placeHist[i+4],placeHist[i+4]);
-				}
-                 
+				ifctele_getAge();
+                ifctele_printElement(index);
+                
                 break;
+                
+                
             //감염 경로 및 최초 전파자 추적    
-            case MENU_TRACK:
-            	printf("Patient index : ");
-            	scanf("%d",&patient_track);
+            case MENU_TRACK:   //menu 4
+            	printf("Patient index : ");  //입력받은 index를 통해 track 
+            	scanf("%d",&index);
 				 
+                 ifctele_getHistPlaceIndex();
                  
                 break;
                 
