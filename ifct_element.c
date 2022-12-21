@@ -148,12 +148,20 @@ typedef struct ifs_ele
 	if( index == index) //입력받은 index 값이 동일할 경우 
 	{
 		//만약 patient가 첫번째 감염자 일경우
+		if(place[N_HISTORY] = place[0])
+		{
+			printf("--> [TRACKING] patient %d is infected by %d (time : %d, place : %c)", index, index,place[N_HISTORY],place[N_HISTORY])
+		}
 		
 		//만약 patient가 첫번째 감염자가 아닐경우 for문을 이용해 누구로 부터 감염되었는지 추적 
-		for()
+		else
 		{
-			printf("--> [TRACKING] patient %d is infected by %d (time : %d, place : %c)", index, index,)
+			for(i =0; i)
+			{
+				printf("--> [TRACKING] patient %d is infected by %d (time : %d, place : %c)", index, index,place[N_HISTORY],place[N_HISTORY])
+			}	
 		}
+		
 	}
 	 
 	return countryName[placeIndex];	
@@ -162,15 +170,19 @@ typedef struct ifs_ele
 
  unsigned int ifctele_getinfestedTime(void* obj)
  { //감염 확인 일자를 얻는 함수 
- 	/*
-		for문을 통해서 time의 값을 얻음	
-	*/
+ 	
+	//for문을 통해서 time의 값을 얻음
+	if (index = index)
+	{
+		for(i=0; i<)
+	}
+	
+	
  }
  
  void ifctele_getAge(void* obj)
  { //감염자의 나이를  얻는 함수 
  	
-	
 	for(j = min_age; j<max_age+1; j++) //min_age부터 max_age까지 내에 나이가 맞으면 아래 값을 출력 
 	{
     	ifctele_printElement();
@@ -203,7 +215,4 @@ typedef struct ifs_ele
 			}
 		}
 	}
-	
-	
- 	
  }
